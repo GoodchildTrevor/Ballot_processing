@@ -1,10 +1,10 @@
 import pandas as pd
 from openpyxl import load_workbook
 
-fn = r"1999.xlsx"
+fn = r'C:\Users\user\Downloads\1999.xlsx'
 wb = load_workbook(fn)
-ws = wb["Sheet1"]
-df_original = pd.read_excel(r"1999.xlsx", sheet_name="номинанты")
+ws = wb['Sheet1']
+df_original = pd.read_excel(r'C:\Users\user\Downloads\1999.xlsx', sheet_name='номинанты')
 
 top = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 beginning0 = ["10.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9."]
@@ -18,6 +18,7 @@ nomination = [
     "adapted_screenplay",
 ]
 nomination_plus = ["movie"] + nomination
+
 df_movies = pd.DataFrame()
 df_second = pd.DataFrame()
 df_third = pd.DataFrame()
