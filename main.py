@@ -101,8 +101,7 @@ for x in range(len(nomination)):
         "best_{}".format(nomination[x])
     ].apply(prob)
     df_second['best_{}'.format(nomination[x])] = df_second[
-        'best_{}'.format(nomination[x])].apply(
-        change, args=(df_second, 'best_{}'.format(nomination[x]))
+        'best_{}'.format(nomination[x])].apply(change, args=(df_second, 'best_{}'.format(nomination[x]))
 
 df_movies["movie"] = df_movies["movie"].str.lower()
 df_movies["movie"] = df_movies["movie"].apply(replacer)
