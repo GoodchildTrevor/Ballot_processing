@@ -44,69 +44,6 @@ def change(value1, frame, attr):
             return value1
 
 
-def change1(movie):
-    for x in range(len(df_best["movie"])):
-        movie2 = df_best.loc[x, "movie"]
-        if movie in movie2:
-            return movie2
-        elif movie2 in movie:
-            return movie
-
-
-def change_actor(name):
-    for x in range(len(df_second["best_actor"])):
-        name2 = df_second.loc[x, "best_actor"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
-def change_actress(name):
-    for x in range(len(df_second["best_actress"])):
-        name2 = df_second.loc[x, "best_actress"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
-def change_actor2(name):
-    for x in range(len(df_second["best_actor2"])):
-        name2 = df_second.loc[x, "best_actor2"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
-def change_actress2(name):
-    for x in range(len(df_second["best_actress2"])):
-        name2 = df_second.loc[x, "best_actress2"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
-def change_original_screenplay(name):
-    for x in range(len(df_second["best_original_screenplay"])):
-        name2 = df_second.loc[x, "best_original_screenplay"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
-def change_adapted_screenplay(name):
-    for x in range(len(df_second["best_adapted_screenplay"])):
-        name2 = df_second.loc[x, "best_adapted_screenplay"]
-        if name in name2:
-            return name2
-        elif name2 in name:
-            return name
-
-
 def replacer(a):
     a = a.replace("(", "")
     a = a.replace(")", "")
