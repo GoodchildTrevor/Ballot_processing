@@ -109,20 +109,6 @@ df_movies["movie"] = df_movies["movie"].apply(replacer)
 df_movies["movie"] = df_movies["movie"].apply(prob)
 df_movies["movie"] = df_movies["movie"].apply(change, args=(df_movies, "movie"))
 
-df_second["best_director"] = df_second["best_director"].apply(
-    change, args=(df_second, "best_director")
-)
-df_second["best_actor"] = df_second["best_actor"].apply(change_actor)
-df_second["best_actress"] = df_second["best_actress"].apply(change_actress)
-df_second["best_actor2"] = df_second["best_actor2"].apply(change_actor2)
-df_second["best_actress2"] = df_second["best_actress2"].apply(change_actress2)
-df_second["best_original_screenplay"] = df_second["best_original_screenplay"].apply(
-    change_original_screenplay
-)
-df_second["best_adapted_screenplay"] = df_second["best_adapted_screenplay"].apply(
-    change_adapted_screenplay
-)
-
 for x in range(len(nomination)):
     df_third = pd.DataFrame()
     df_third["{}".format(nomination[x])] = df_second.pivot_table(
