@@ -103,8 +103,6 @@ for y in range(len(nomination)):
             df_second.loc[count_nomination, "best_{}".format(nomination[y])] = values[z]
             df_second.loc[count_nomination, "point_{}".format(nomination[y])] = 1
             count_nomination += 1
-
-print(df_second)
             
 for name, values in data.items():
     for x in range(len(top)):
