@@ -71,7 +71,6 @@ def replacer(a):
     a = a.replace(")", "")
     a = a.replace("ё", "е")
     a = a.replace(",", "")
-    a = a.replace("  ", " ")
     a = a.replace("-", "")
     for index in range(len(top)):
         a = a.replace(beginning0[index], "")
