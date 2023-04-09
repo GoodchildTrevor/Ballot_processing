@@ -16,7 +16,29 @@ nomination = [
     "actress2",
     "original_screenplay",
     "adapted_screenplay",
+    "operator", 
+    "editings",
+    "soundtrack",
+    "song",
+    "art_direction",
+    "costumes",
+    "make_up",
+    "effects",
+    "sound",
+    "stunts",
+    "animation",
+    "documentation",
+    "russian",
+    "live_action_short",
+    "animated_short",
+    "documentary_short",
+    "debut",
+    "ensemble",
+    "using_music",
+    "young_actor",
+    "special",  
 ]
+
 nomination_plus = ["movie"] + nomination
 
 df_movies = pd.DataFrame()
