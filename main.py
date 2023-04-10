@@ -71,6 +71,7 @@ def replacer(a):
     a = a.replace(")", "")
     a = a.replace("ё", "е")
     a = a.replace(",", "")
+    a = a.replace ("  ", " ")
     a = a.replace("-", "")
     for index in range(len(top)):
         a = a.replace(beginning0[index], "")
@@ -144,8 +145,6 @@ for x in range(len(nomination)):
         .sort_values(by="{}".format(nomination[x]), ascending=False)
         .reset_index()
     )
-    a["best_{}".format(nomination[x])] = a["best_{}".format(nomination[x])].apply(
-        change, args=(a, "best_{}".format(nomination[x])))
     value = results(a["best_{}".format(nomination[x])])
     value_point = results(a["{}".format(nomination[x])])
     for y in range(len(value)):
@@ -160,10 +159,6 @@ df_best = df_movies.pivot_table(
 best_movies = (
     df_best.groupby("movie")["point"].sum().sort_values(ascending=False).reset_index()
 )
-
-print(best_movies)
-best_movies["movie"] = best_movies["movie"].apply(change, args=(best_movies, "movie"))
-print(best_movies)
 
 for x in range(len(best_movies["movie"])):
     value = best_movies.loc[x, "movie"]
