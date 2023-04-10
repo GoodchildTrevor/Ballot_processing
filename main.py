@@ -138,6 +138,7 @@ for x in range(len(nomination)):
         aggfunc="count",
     )
     df_third = df_third.reset_index(level="best_{}".format(nomination[x]))
+    df_third["best_{}".format(nomination[x]] = df_third["best_{}".format(nomination[x]].apply(change, args=(df_third, "best_{}".format(nomination[x]))
     df_third = df_third[df_third["best_{}".format(nomination[x])] != "zzz"]
     a = (
         df_third[["best_{}".format(nomination[x]), "{}".format(nomination[x])]]
@@ -159,7 +160,7 @@ best_movies = (
     df_best.groupby("movie")["point"].sum().sort_values(ascending=False).reset_index()
 )
 
-best_movies["movie"] = best_movies["movie"].apply(change, args=(df_movies, "movie"))
+best_movies["movie"] = best_movies["movie"].apply(change, args=(best_movies, "movie"))
 
 for x in range(len(best_movies["movie"])):
     value = best_movies.loc[x, "movie"]
