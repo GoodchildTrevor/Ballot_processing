@@ -159,6 +159,8 @@ best_movies = (
     df_best.groupby("movie")["point"].sum().sort_values(ascending=False).reset_index()
 )
 
+best_movies["movie"] = best_movies["movie"].apply(change, args=(df_movies, "movie"))
+
 for x in range(len(best_movies["movie"])):
     value = best_movies.loc[x, "movie"]
     value_point = best_movies.loc[x, "point"]
