@@ -63,7 +63,7 @@ def change(value1, frame, attr):
         if value1 in value2:
             return value2
         elif value2 in value1:
-            return value1
+            return value2
 
 
 def replacer(a):
@@ -138,15 +138,14 @@ for x in range(len(nomination)):
         aggfunc="count",
     )
     df_third = df_third.reset_index(level="best_{}".format(nomination[x]))
-    df_third["best_{}".format(nomination[x])] = df_third["best_{}".format(nomination[x])].apply(
-        change, args=(df_third, "best_{}".format(nomination[x])))
     df_third = df_third[df_third["best_{}".format(nomination[x])] != "zzz"]
     a = (
         df_third[["best_{}".format(nomination[x]), "{}".format(nomination[x])]]
         .sort_values(by="{}".format(nomination[x]), ascending=False)
         .reset_index()
     )
-    print(a)
+    a["best_{}".format(nomination[x])] = a["best_{}".format(nomination[x])].apply(
+        change, args=(a, "best_{}".format(nomination[x])))
     value = results(a["best_{}".format(nomination[x])])
     value_point = results(a["{}".format(nomination[x])])
     for y in range(len(value)):
