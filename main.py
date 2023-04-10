@@ -159,6 +159,7 @@ df_best = df_movies.pivot_table(
 best_movies = (
     df_best.groupby("movie")["point"].sum().sort_values(ascending=False).reset_index()
 )
+best_movies = best_movies[df_third["movie"] != "zzz"]
 
 for x in range(len(best_movies["movie"])):
     value = best_movies.loc[x, "movie"]
