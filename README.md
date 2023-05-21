@@ -37,6 +37,3 @@ If it doesn't, you may need to modify the script or adjust your Excel file to me
 # Limitations
 This script is designed to work with specific data structures and functions. 
 If the input data or functions are not defined as expected, the script might fail. 
-
-The script doesn't handle exceptions, so if there are any errors during execution, the script will stop without saving any progress. 
-It is advisable to add error handling to make the script more robust.
