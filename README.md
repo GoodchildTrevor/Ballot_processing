@@ -28,14 +28,14 @@ The final workbook is saved to the file system with the filename fn.
 # Usage
 Before running this script, please ensure you have the following prerequisites:
 
-* Install necessary Python packages, Pandas and Openpyxl.
-* To get the expected results, your Excel file structure should resemble the example provided. 
+## Install necessary Python packages, Pandas and Openpyxl.
+## To get the expected results, your Excel file structure should resemble the example provided. 
 Please ensure the structure and layout of your Excel workbook matches the example before running the script. 
 If it doesn't, you may need to modify the script or adjust your Excel file to meet the script's requirements.
 
-* You need to
-** Define wb as an Openpyxl workbook object, and ws as a worksheet within this workbook.
-** Define fn as the desired filename for the final Excel workbook.
+## You need to
+### Define wb as an Openpyxl workbook object, and ws as a worksheet within this workbook.
+### Define fn as the desired filename for the final Excel workbook.
 
 # Limitations
 This script is designed to work with specific data structures and functions. 
