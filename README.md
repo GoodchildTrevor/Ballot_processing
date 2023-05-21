@@ -1,11 +1,11 @@
 # Ballot_processing
 
-This Python script provides a comprehensive solution for data cleaning, transformation, and aggregation using Pandas and Openpyxl libraries. 
+This Python script provides a solution for data cleaning, transformation, and aggregation using Pandas and Openpyxl libraries. 
 The script processes input data, cleanses it using the replacer function, calculates points, aggregates them, and then stores the results in an Excel file.
 
 # How it Works
 In the first part of the script, we iterate over df_original dataframe items. 
-For each non-null value in each column, we populate the df_second dataframe with specific data, including user names, best values, and a constant point value of 1. 
+For each non-null value in each column, we populate the df_second dataframe with specific data, including user names, values, and a point value. 
 The script uses the nomination list to format the column names. The count_nomination is used to keep track of the current row index in df_second.
 
 In the second part, we iterate over the data items. We create a new dataframe df_movies with users, movies, and points. 
@@ -20,7 +20,7 @@ The next section applies various operations to each nomination column in df_seco
 * Applying the change function with dataframe and column name as arguments.
 * Then, the script creates a new dataframe df_third that counts how many times each value appears in the respective column of df_second. 
 * The result is sorted in descending order, and then processed by the results function. 
-* After that, the script calculates the total points for each movie in df_movies and sorts the result in descending order. 
+* Also the script calculates the total points for each movie in df_movies and sorts the result in descending order. 
 * In the final part, this processed data is written into an Excel workbook (ws) using Openpyxl.
 Additionally, it writes down nomination names and "points" into the first row of the Excel workbook. 
 The final workbook is saved to the file system with the filename fn.
