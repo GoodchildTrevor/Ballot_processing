@@ -38,8 +38,8 @@ Please ensure the structure and layout of your Excel workbook matches the exampl
 If it doesn't, you may need to modify the script or adjust your Excel file to meet the script's requirements.
 
 * You need to
-*Define wb as an Openpyxl workbook object, and ws as a worksheet within this workbook.
-*Define fn as the desired filename for the final Excel workbook.
+Define wb as an Openpyxl workbook object, and ws as a worksheet within this workbook.
+Define fn as the desired filename for the final Excel workbook.
 
 # Limitations
 This script is designed to work with specific data structures and functions. 
