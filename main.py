@@ -1,10 +1,14 @@
 import pandas as pd
 from openpyxl import load_workbook
 
-fn = r'C:\Users\user\Downloads\1999.xlsx'
+ """
+ import of pandas to work with data and load_workbook to work with MS_Excel
+ """
+
+fn = r'C:\Users\user\Downloads\Byulleteni_polzovateley.xlsx'
 wb = load_workbook(fn)
-ws = wb['Sheet1']
-df_original = pd.read_excel(r'C:\Users\user\Downloads\1999.xlsx', sheet_name='номинанты')
+ws = wb['победители']
+df_original = pd.read_excel(r'C:\Users\user\Downloads\Byulleteni_polzovateley.xlsx', sheet_name='номинанты')
 
 top = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 beginning0 = ["10.", "1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9."]
@@ -35,8 +39,7 @@ nomination = [
     "debut",
     "ensemble",
     "using_music",
-    "young_actor",
-    "special",  
+    "young_actor"
 ]
 
 nomination_plus = ["movie"] + nomination
@@ -67,6 +70,10 @@ def change(value1, frame, attr):
 
 
 def replacer(a):
+    """
+    text sanitizer which removing or replacing certain unwanted characters
+    :a: string in a column
+    """
     a = a.replace("(", "")
     a = a.replace(")", "")
     a = a.replace("ё", "е")
@@ -86,16 +93,25 @@ def results(data):
 
 
 def prob(movie):
+    """
+    remove spaces at the beginning and at the end of the string
+    """
     movie = movie.strip()
     return movie
 
 
 for name, values in df_original.items():
+    """
+    create new table with movies only, order matters
+    """
     values = values.dropna().reset_index(drop=True)
     for x in range(0, 11):
         data.loc[x, name] = values[x]
 
 for y in range(len(nomination)):
+    """
+    create new table with other nominants, only mentions important
+    """
     count_nomination = 0
     for name, values in df_original.items():
         values = values.dropna().reset_index(drop=True)
@@ -106,12 +122,18 @@ for y in range(len(nomination)):
             count_nomination += 1
             
 for name, values in data.items():
+    """
+    create new table with  users, movies, and points
+    """
     for x in range(len(top)):
         df_movies.loc[count, "user"] = name
         df_movies.loc[count, "movie"] = data.loc[x + 1, name]
         df_movies.loc[count, "point"] = top[x]
         count += 1
 
+    """
+    apply functions to
+    """
 for x in range(len(nomination)):
     df_second["best_{}".format(nomination[x])] = df_second[
         "best_{}".format(nomination[x])
@@ -131,6 +153,9 @@ df_movies["movie"] = df_movies["movie"].apply(replacer)
 df_movies["movie"] = df_movies["movie"].apply(prob)
 df_movies["movie"] = df_movies["movie"].apply(change, args=(df_movies, "movie"))
 
+"""
+count mentions
+"""
 for x in range(len(nomination)):
     df_third = pd.DataFrame()
     df_third["{}".format(nomination[x])] = df_second.pivot_table(
@@ -160,6 +185,10 @@ best_movies = (
     df_best.groupby("movie")["point"].sum().sort_values(ascending=False).reset_index()
 )
 
+
+"""
+write down the results
+"""
 for x in range(len(best_movies["movie"])):
     value = best_movies.loc[x, "movie"]
     value_point = best_movies.loc[x, "point"]
