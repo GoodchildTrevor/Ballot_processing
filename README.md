@@ -12,6 +12,8 @@ In the second part, we iterate over the data items. We create a new dataframe df
 The top list is used to assign points. 
 The count is used to keep track of the current row index in df_movies.
 
+# Workflow
+
 The next section applies various operations to each nomination column in df_second dataframe and the movie column in df_movies dataframe, including:
 
 * Changing the text to lowercase.
@@ -37,3 +39,6 @@ If it doesn't, you may need to modify the script or adjust your Excel file to me
 # Limitations
 This script is designed to work with specific data structures and functions. 
 If the input data or functions are not defined as expected, the script might fail. 
+
+# Consclusion
+This Python script utilizes Pandas and Openpyxl libraries for data cleaning, transformation, and aggregation. It processes input data, assigns points based on selections, and exports results to an Excel file. The script provides clear and organized data for analysis, while relying on specific structures and functions. Further improvements can enhance flexibility and error handling. Overall, it showcases Python's capabilities for efficient ballot processing and data analysis.
