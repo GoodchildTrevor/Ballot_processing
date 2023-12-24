@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 import of pandas to work with data and load_workbook to work with MS_Excel
 """
 
-fn = r'C:\Users\User\Downloads\2022_new.xlsx'
+fn = r'1989.xlsx'
 wb = load_workbook(fn)
 ws = wb['победители']
 df_original = pd.read_excel(fn, sheet_name='номинанты')
@@ -40,8 +40,8 @@ nomination = [
     "ensemble",
     "using_music",
     "young_actor",
-    'special_mentions',
-    "choreography"
+    "choreography",
+    'special_mentions'
 ]
 
 nomination_plus = ["movie"] + nomination
@@ -81,13 +81,13 @@ df_original = df_original.drop(columns = 'Отметка времени').set_in
 df_first = df_original.T
 nominees.columns = nomination
 
-for name, values in df_first .items():
+for name, values in df_first.items():
     """
     create new table with movies only, order matters
     """
     values = values.dropna().reset_index(drop=True)
-
-    for x in range(0,10):
+    print(name, len(values))
+    for x in range(10):
         data.loc[x, name] = values[x]
 
 for name, values in data.items():
@@ -95,10 +95,11 @@ for name, values in data.items():
     create new table with  users, movies, and points
     """
     for x in range(len(top)):
-        df_movies.loc[count, "user"] = name
-        df_movies.loc[count, "movie"] = data.loc[x, name]
-        df_movies.loc[count, "point"] = top[x]
-        count += 1
+        if data.loc[x, name] != 'xxx':
+            df_movies.loc[count, "user"] = name
+            df_movies.loc[count, "movie"] = data.loc[x, name]
+            df_movies.loc[count, "point"] = top[x]
+            count += 1
 
 for nom in range(len(nomination)):
     count_nomination = 0
